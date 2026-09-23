@@ -6,7 +6,7 @@ el de tus amigos.
 
 ## ¿Qué hace?
 
-1. Creas un **Evento** (ej: "Cena Araguaney") y eliges qué **Personas** de tu
+1. Creas un **Evento** (ej: "Cena Cumpleaños") y eliges qué **Personas** de tu
    libreta participaron (o agregas gente nueva al vuelo).
 2. Tomas una **foto de la boleta** (o la eliges de la galería) y la
    **recortas** para dejar solo la boleta (sin mesa, manos ni fondo). La app
