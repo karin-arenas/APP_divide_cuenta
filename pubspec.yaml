@@ -1,0 +1,57 @@
+name: divide_cuenta
+description: "Divide Cuenta - divide cuentas de restorán entre amigos, con lectura de boletas por foto (OCR con Gemini)."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # Base de datos local
+  sqflite: ^2.3.3+1
+  path: ^1.9.0
+  path_provider: ^2.1.3
+
+  # Fotos / imágenes
+  image_picker: ^1.1.2
+
+  # Red / OCR Gemini
+  http: ^1.2.1
+
+  # Exportar a Excel
+  excel: ^4.0.6
+
+  # Compartir archivos
+  share_plus: ^9.0.0
+
+  # Preferencias (API key, config)
+  shared_preferences: ^2.2.3
+
+  # Formato de moneda es_CL
+  intl: 0.20.3
+
+  # Utilidades
+  uuid: ^4.4.0
+  url_launcher: ^6.3.0
+
+  # Tipografía del diseño "Precision Ledger"
+  google_fonts: ^6.2.1
+
+  # Logo en SVG
+  flutter_svg: ^2.0.10+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.svg

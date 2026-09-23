@@ -1,0 +1,46 @@
+name: Build APK
+
+# Compila la app y deja el archivo .apk listo para descargar, sin que
+# necesites instalar Flutter ni Android Studio en tu computador.
+#
+# Cómo usarlo:
+# 1. Crea un repositorio nuevo (puede ser privado) en https://github.com/new
+# 2. Sube todo el contenido de esta carpeta a ese repositorio (arrastrando
+#    los archivos en la web de GitHub, o con git push).
+# 3. Ve a la pestaña "Actions" del repositorio: este workflow se ejecutará
+#    solo. Espera a que termine (unos 5-8 minutos).
+# 4. Entra al run terminado -> sección "Artifacts" -> descarga
+#    "divide-cuenta-apk". Ahí está el archivo .apk para instalar en tu
+#    celular (ver README.md para los pasos de instalación).
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+
+      # Regenera archivos de plantilla de Android que pueden faltar
+      # (por ejemplo el gradle-wrapper.jar) sin tocar el código en lib/.
+      - name: Regenerate Android scaffolding
+        run: flutter create --platforms=android .
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build debug APK
+        run: flutter build apk --debug
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: divide-cuenta-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk

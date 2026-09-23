@@ -1,0 +1,635 @@
+<!DOCTYPE html><html class="dark" lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0f131c;color:#dfe2ef;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary":"#c5eaff","on-tertiary-fixed":"#001e2f","surface":"#0f131c","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","inverse-surface":"#dfe2ef","surface-container-lowest":"#0a0e17","error":"#ffb4ab","secondary":"#4cd7f6","surface-container-low":"#181b25","on-error-container":"#ffdad6","tertiary-fixed":"#c9e6ff","on-tertiary-container":"#005981","primary-fixed":"#c0e8ff","on-primary-fixed-variant":"#004d66","secondary-fixed":"#acedff","inverse-on-surface":"#2c303a","primary-container":"#7dd3fc","tertiary":"#cde8ff","secondary-fixed-dim":"#4cd7f6","tertiary-container":"#8ed0ff","on-surface-variant":"#bec8ce","on-tertiary":"#00344d","on-primary":"#003547","on-surface":"#dfe2ef","on-error":"#690005","on-primary-container":"#005b78","on-secondary-container":"#00424e","tertiary-fixed-dim":"#89ceff","surface-container-highest":"#31353f","primary-fixed-dim":"#7bd1fa","surface-tint":"#7bd1fa","inverse-primary":"#006686","on-secondary":"#003640","outline":"#899298","surface-container":"#1c1f29","on-secondary-fixed":"#001f26","surface-variant":"#31353f","on-primary-fixed":"#001e2b","surface-dim":"#0f131c","on-background":"#dfe2ef","error-container":"#93000a","surface-bright":"#353943","outline-variant":"#3f484e","background":"#0f131c","on-tertiary-fixed-variant":"#004c6e","surface-container-high":"#262a34"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","space-md":"1rem","space-sm":"0.5rem","margin-tablet":"2rem","margin":"1rem","gutter":"0.75rem","gutter-tablet":"1rem","margin-desktop":"3rem","gutter-desktop":"1.5rem","space-xs":"0.25rem","space-lg":"1.5rem"},"fontFamily":{"body-lg":["Hanken Grotesk"],"label-lg":["JetBrains Mono"],"headline-md":["Space Grotesk"],"headline-lg":["Space Grotesk"],"display-lg-mobile":["Space Grotesk"],"body-sm":["Hanken Grotesk"],"display-lg":["Space Grotesk"],"label-md":["JetBrains Mono"],"body-md":["Hanken Grotesk"],"headline-sm":["Space Grotesk"],"label-sm":["JetBrains Mono"]},"fontSize":{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"18px","fontWeight":"500"}],"headline-md":["22px",{"lineHeight":"28px","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"34px","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"38px","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"display-lg":["40px",{"lineHeight":"48px","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"14px","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="DiviCuenta Logo" class="h-8 w-auto object-contain" src="../assets/logo.svg"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-secondary tracking-tight font-semibold">Divide_Cuenta</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Contactos Frecuentes</span></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-margin pt-space-md pb-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface">Compañeros de mesa</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">group</span>
+</div>
+<span class="font-label-md text-label-md text-secondary" id="contact-counter">5 contactos guardados</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-primary-container text-on-primary-container rounded-xl font-headline-sm text-headline-sm shadow-md active:scale-95 transition-all" id="btn-open-modal" onclick="toggleAddModal(true)">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span class="">+ Agregar</span>
+</button>
+</div>
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-space-md flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full pl-11 pr-space-md py-space-sm bg-surface-container rounded-xl font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-high transition-colors" id="search-input" oninput="filterContacts(this.value)" placeholder="Buscar por nombre, email o tel..." type="text">
+<button class="hidden absolute inset-y-0 right-0 pr-space-sm flex items-center text-on-surface-variant active:text-on-surface" id="clear-search-btn" onclick="clearSearch()">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-low shadow-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Asignación</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate">1-Tap en tickets</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-low shadow-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Cuentas Claras</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate">Links de cobro</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs" id="contact-list">
+<div class="contact-card relative p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm transition-all" data-email="valeria.rivas@gmail.com" data-name="Valeria Rivas" data-phone="+34 611 234 567">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-full flex items-center justify-center font-headline-sm text-headline-sm text-on-primary font-bold shadow-md bg-gradient-to-br from-primary-container via-secondary to-on-primary-fixed-variant shrink-0">
+              VR
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="contact-name font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Valeria Rivas</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-medium shrink-0">Obligatorio</span>
+</div>
+<a class="contact-email flex items-center gap-1 text-on-surface-variant hover:text-secondary font-body-sm text-body-sm truncate pt-0.5" href="mailto:valeria.rivas@gmail.com">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+<span class="truncate">valeria.rivas@gmail.com</span>
+</a>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all" onclick="openEditModal(this)" title="Editar contacto">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 active:scale-95 transition-all" onclick="confirmDelete(this)" title="Eliminar contacto">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between text-on-surface-variant">
+<a class="contact-phone flex items-center gap-1.5 font-label-md text-label-md text-primary hover:underline" href="tel:+34611234567">
+<span class="material-symbols-outlined text-[16px] text-secondary">call</span>
+<span class="">+34 611 234 567</span>
+</a>
+<div class="flex items-center gap-space-xs">
+<a class="px-space-sm py-1 rounded-lg bg-surface-container text-secondary flex items-center gap-1 font-label-sm text-label-sm active:scale-95" href="https://wa.me/34611234567" target="_blank">
+<span class="material-symbols-outlined text-[14px]">chat</span>
+<span class="">WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+<div class="contact-card relative p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm transition-all" data-email="mateo.dev@outlook.com" data-name="Mateo Morales" data-phone="+34 699 876 543">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-full flex items-center justify-center font-headline-sm text-headline-sm text-on-primary font-bold shadow-md bg-gradient-to-br from-secondary via-on-tertiary-container to-surface-container-highest shrink-0">
+              MM
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="contact-name font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Mateo Morales</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-medium shrink-0">Obligatorio</span>
+</div>
+<a class="contact-email flex items-center gap-1 text-on-surface-variant hover:text-secondary font-body-sm text-body-sm truncate pt-0.5" href="mailto:mateo.dev@outlook.com">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+<span class="truncate">mateo.dev@outlook.com</span>
+</a>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all" onclick="openEditModal(this)" title="Editar contacto">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 active:scale-95 transition-all" onclick="confirmDelete(this)" title="Eliminar contacto">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between text-on-surface-variant">
+<a class="contact-phone flex items-center gap-1.5 font-label-md text-label-md text-primary hover:underline" href="tel:+34699876543">
+<span class="material-symbols-outlined text-[16px] text-secondary">call</span>
+<span class="">+34 699 876 543</span>
+</a>
+<div class="flex items-center gap-space-xs">
+<a class="px-space-sm py-1 rounded-lg bg-surface-container text-secondary flex items-center gap-1 font-label-sm text-label-sm active:scale-95" href="https://wa.me/34699876543" target="_blank">
+<span class="material-symbols-outlined text-[14px]">chat</span>
+<span class="">WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+<div class="contact-card relative p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm transition-all" data-email="camila.duarte@empresa.es" data-name="Camila Duarte" data-phone="+34 622 109 876">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-full flex items-center justify-center font-headline-sm text-headline-sm text-on-primary font-bold shadow-md bg-gradient-to-br from-tertiary-container via-secondary-container to-surface-tint shrink-0">
+              CD
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="contact-name font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Camila Duarte</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-medium shrink-0">Obligatorio</span>
+</div>
+<a class="contact-email flex items-center gap-1 text-on-surface-variant hover:text-secondary font-body-sm text-body-sm truncate pt-0.5" href="mailto:camila.duarte@empresa.es">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+<span class="truncate">camila.duarte@empresa.es</span>
+</a>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all" onclick="openEditModal(this)" title="Editar contacto">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 active:scale-95 transition-all" onclick="confirmDelete(this)" title="Eliminar contacto">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between text-on-surface-variant">
+<a class="contact-phone flex items-center gap-1.5 font-label-md text-label-md text-primary hover:underline" href="tel:+34622109876">
+<span class="material-symbols-outlined text-[16px] text-secondary">call</span>
+<span class="">+34 622 109 876</span>
+</a>
+<div class="flex items-center gap-space-xs">
+<a class="px-space-sm py-1 rounded-lg bg-surface-container text-secondary flex items-center gap-1 font-label-sm text-label-sm active:scale-95" href="https://wa.me/34622109876" target="_blank">
+<span class="material-symbols-outlined text-[14px]">chat</span>
+<span class="">WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+<div class="contact-card relative p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm transition-all" data-email="lucas.soto@gmail.com" data-name="Lucas Sotomayor" data-phone="">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-full flex items-center justify-center font-headline-sm text-headline-sm text-on-primary font-bold shadow-md bg-gradient-to-br from-primary via-on-secondary-fixed-variant to-surface-container-high shrink-0">
+              LS
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="contact-name font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Lucas Sotomayor</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-medium shrink-0">Obligatorio</span>
+</div>
+<a class="contact-email flex items-center gap-1 text-on-surface-variant hover:text-secondary font-body-sm text-body-sm truncate pt-0.5" href="mailto:lucas.soto@gmail.com">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+<span class="truncate">lucas.soto@gmail.com</span>
+</a>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all" onclick="openEditModal(this)" title="Editar contacto">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 active:scale-95 transition-all" onclick="confirmDelete(this)" title="Eliminar contacto">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between text-on-surface-variant">
+<span class="contact-phone font-label-sm text-label-sm text-on-surface-variant italic">Sin número registrado</span>
+<span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded bg-surface-container text-on-surface-variant">Sólo Email</span>
+</div>
+</div>
+<div class="contact-card relative p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm transition-all" data-email="" data-name="Andrea Gómez" data-phone="+34 655 432 109">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-full flex items-center justify-center font-headline-sm text-headline-sm text-on-primary font-bold shadow-md bg-gradient-to-br from-secondary-fixed via-secondary-container to-surface-container-highest shrink-0">
+              AG
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="contact-name font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Andrea Gómez</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-medium shrink-0">Obligatorio</span>
+</div>
+<span class="contact-email font-body-sm text-body-sm text-on-surface-variant italic pt-0.5">Sin email configurado</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all" onclick="openEditModal(this)" title="Editar contacto">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 active:scale-95 transition-all" onclick="confirmDelete(this)" title="Eliminar contacto">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between text-on-surface-variant">
+<a class="contact-phone flex items-center gap-1.5 font-label-md text-label-md text-primary hover:underline" href="tel:+34655432109">
+<span class="material-symbols-outlined text-[16px] text-secondary">call</span>
+<span class="">+34 655 432 109</span>
+</a>
+<div class="flex items-center gap-space-xs">
+<a class="px-space-sm py-1 rounded-lg bg-surface-container text-secondary flex items-center gap-1 font-label-sm text-label-sm active:scale-95" href="https://wa.me/34655432109" target="_blank">
+<span class="material-symbols-outlined text-[14px]">chat</span>
+<span class="">WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden flex-col items-center justify-center py-space-xl px-space-md text-center bg-surface-container-low rounded-xl" id="empty-state">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant mb-space-sm">
+<span class="material-symbols-outlined text-[32px]">person_off</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">No se encontraron contactos</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-xs">Intenta con otro término de búsqueda o registra un nuevo compañero de mesa.</p>
+</div>
+<div class="mt-space-md p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Asignación ultra rápida</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Al digitalizar un ticket, estos contactos aparecen listos para repartir ítems y consumos en un toque.</span>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 bg-surface-container-lowest/80 backdrop-blur-sm z-50 hidden transition-opacity" id="modal-backdrop" onclick="toggleAddModal(false)"></div>
+<div class="fixed inset-x-0 bottom-0 z-50 transform translate-y-full transition-transform duration-300 ease-out bg-surface-container-low rounded-t-xl pb-safe shadow-[0_-12px_32px_-4px_rgba(76,215,246,0.15)] max-h-[90vh] overflow-y-auto" id="add-contact-modal">
+<div class="px-margin pt-space-md pb-space-lg flex flex-col gap-space-md">
+<div class="w-12 h-1 bg-surface-variant rounded-full mx-auto"></div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold" id="modal-title">Nuevo Contacto</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Agrégalo a tu grupo habitual</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant active:scale-95" onclick="toggleAddModal(false)">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="flex flex-col gap-space-md pt-space-xs" id="contact-form" onsubmit="handleFormSubmit(event)">
+<input id="edit-contact-index" type="hidden" value="-1">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1" for="contact-name-input">
+<span class="">Nombre</span>
+<span class="text-error">*</span>
+</label>
+<span class="px-1.5 py-0.5 rounded bg-error-container/20 text-error font-label-sm text-label-sm">Requerido</span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">badge</span>
+<input class="w-full pl-11 pr-space-md py-space-sm bg-surface-container rounded-xl font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-1 focus:ring-secondary transition-all" id="contact-name-input" placeholder="Ej. Camila Morales" required="" type="text">
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1" for="contact-email-input">
+<span class="">Email</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm font-normal">(opcional)</span>
+</label>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">alternate_email</span>
+<input class="w-full pl-11 pr-space-md py-space-sm bg-surface-container rounded-xl font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-1 focus:ring-secondary transition-all" id="contact-email-input" placeholder="ejemplo@correo.com" type="email">
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1" for="contact-phone-input">
+<span class="">Número de Teléfono</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm font-normal">(opcional)</span>
+</label>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Con código país</span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">phone_iphone</span>
+<input class="w-full pl-11 pr-space-md py-space-sm bg-surface-container rounded-xl font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-1 focus:ring-secondary transition-all" id="contact-phone-input" placeholder="+34 600 000 000" type="tel">
+</div>
+</div>
+<div class="flex items-center gap-space-sm pt-space-sm">
+<button class="flex-1 py-space-sm rounded-xl bg-surface-container text-on-surface font-headline-sm text-headline-sm active:scale-95 transition-all text-center" onclick="toggleAddModal(false)" type="button">
+            Cancelar
+          </button>
+<button class="flex-1 py-space-sm rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-semibold active:scale-95 transition-all text-center shadow-md" id="modal-submit-btn" type="submit">
+            Guardar
+          </button>
+</div>
+</form>
+</div>
+</div>
+<div class="fixed inset-0 bg-surface-container-lowest/80 backdrop-blur-sm z-50 hidden transition-opacity" id="delete-dialog-backdrop" onclick="closeDeleteDialog()"></div>
+<div class="fixed inset-x-margin bottom-space-xl z-50 hidden transform transition-all bg-surface-container rounded-xl p-space-md shadow-xl flex flex-col gap-space-sm" id="delete-dialog">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-error-container/30 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">¿Eliminar contacto?</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 truncate" id="delete-contact-label">Esta acción quitará a este participante de tus accesos rápidos.</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md active:scale-95" onclick="closeDeleteDialog()">
+        Cancelar
+      </button>
+<button class="px-space-md py-space-xs rounded-lg bg-error text-on-error font-label-md text-label-md font-semibold active:scale-95 shadow-sm" id="btn-confirm-delete" onclick="executeDelete()">
+        Eliminar
+      </button>
+</div>
+</div>
+<div class="fixed top-20 inset-x-margin mx-auto max-w-sm z-50 hidden transform transition-all duration-300 ease-out bg-surface-container-highest/95 backdrop-blur-md px-space-md py-space-sm rounded-xl shadow-lg flex items-center gap-space-sm text-secondary" id="toast">
+<span class="material-symbols-outlined text-[20px]" id="toast-icon">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface flex-1" id="toast-msg">Operación completada</span>
+</div>
+</div>
+<script>
+  let contactToDeleteNode = null;
+  let activeEditingCard = null;
+
+  const gradientPresets = [
+    'from-primary-container via-secondary to-on-primary-fixed-variant',
+    'from-secondary via-on-tertiary-container to-surface-container-highest',
+    'from-tertiary-container via-secondary-container to-surface-tint',
+    'from-primary via-on-secondary-fixed-variant to-surface-container-high',
+    'from-secondary-fixed via-secondary-container to-surface-container-highest',
+    'from-tertiary via-primary-container to-secondary'
+  ];
+
+  function getInitials(name) {
+    if (!name) return '??';
+    const parts = name.trim().split(/\s+/);
+    if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+
+  function updateCounter() {
+    const list = document.getElementById('contact-list');
+    const cards = list.querySelectorAll('.contact-card:not(.hidden-search)');
+    const totalCards = list.querySelectorAll('.contact-card').length;
+    const counter = document.getElementById('contact-counter');
+    const emptyState = document.getElementById('empty-state');
+
+    counter.textContent = `${totalCards} ${totalCards === 1 ? 'contacto guardado' : 'contactos guardados'}`;
+
+    if (cards.length === 0) {
+      emptyState.classList.remove('hidden');
+      emptyState.classList.add('flex');
+    } else {
+      emptyState.classList.add('hidden');
+      emptyState.classList.remove('flex');
+    }
+  }
+
+  function showToast(text, icon = 'check_circle') {
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toast-msg');
+    const toastIcon = document.getElementById('toast-icon');
+
+    toastMsg.textContent = text;
+    toastIcon.textContent = icon;
+    toast.classList.remove('hidden');
+    toast.classList.add('flex');
+
+    setTimeout(() => {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }, 2400);
+  }
+
+  function toggleAddModal(show) {
+    const modal = document.getElementById('add-contact-modal');
+    const backdrop = document.getElementById('modal-backdrop');
+    const form = document.getElementById('contact-form');
+    const modalTitle = document.getElementById('modal-title');
+    const submitBtn = document.getElementById('modal-submit-btn');
+
+    if (show) {
+      if (!activeEditingCard) {
+        modalTitle.textContent = 'Nuevo Contacto';
+        submitBtn.textContent = 'Guardar';
+        form.reset();
+        document.getElementById('edit-contact-index').value = '-1';
+      }
+      backdrop.classList.remove('hidden');
+      modal.classList.remove('translate-y-full');
+      setTimeout(() => {
+        document.getElementById('contact-name-input').focus();
+      }, 250);
+    } else {
+      modal.classList.add('translate-y-full');
+      backdrop.classList.add('hidden');
+      activeEditingCard = null;
+      form.reset();
+    }
+  }
+
+  function openEditModal(button) {
+    const card = button.closest('.contact-card');
+    activeEditingCard = card;
+
+    const name = card.getAttribute('data-name') || '';
+    const email = card.getAttribute('data-email') || '';
+    const phone = card.getAttribute('data-phone') || '';
+
+    document.getElementById('contact-name-input').value = name;
+    document.getElementById('contact-email-input').value = email;
+    document.getElementById('contact-phone-input').value = phone;
+
+    document.getElementById('modal-title').textContent = 'Editar Contacto';
+    document.getElementById('modal-submit-btn').textContent = 'Actualizar';
+
+    toggleAddModal(true);
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    const nameInput = document.getElementById('contact-name-input');
+    const emailInput = document.getElementById('contact-email-input');
+    const phoneInput = document.getElementById('contact-phone-input');
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const phone = phoneInput.value.trim();
+
+    if (!name) {
+      nameInput.focus();
+      return;
+    }
+
+    if (activeEditingCard) {
+      activeEditingCard.setAttribute('data-name', name);
+      activeEditingCard.setAttribute('data-email', email);
+      activeEditingCard.setAttribute('data-phone', phone);
+
+      const avatar = activeEditingCard.querySelector('.font-headline-sm.text-on-primary');
+      if (avatar) avatar.textContent = getInitials(name);
+
+      const nameEl = activeEditingCard.querySelector('.contact-name');
+      if (nameEl) nameEl.textContent = name;
+
+      const emailEl = activeEditingCard.querySelector('.contact-email');
+      if (emailEl) {
+        if (email) {
+          emailEl.outerHTML = `<a href="mailto:${email}" class="contact-email flex items-center gap-1 text-on-surface-variant hover:text-secondary font-body-sm text-body-sm truncate pt-0.5"><span class="material-symbols-outlined text-[14px]">mail</span><span class="truncate">${email}</span></a>`;
+        } else {
+          emailEl.outerHTML = `<span class="contact-email font-body-sm text-body-sm text-on-surface-variant italic pt-0.5">Sin email configurado</span>`;
+        }
+      }
+
+      const bottomBar = activeEditingCard.querySelector('.pt-space-xs');
+      if (bottomBar) {
+        if (phone) {
+          const cleanPhone = phone.replace(/[^0-9]/g, '');
+          bottomBar.innerHTML = `
+            <a href="tel:${phone}" class="contact-phone flex items-center gap-1.5 font-label-md text-label-md text-primary hover:underline">
+              <span class="material-symbols-outlined text-[16px] text-secondary">call</span>
+              <span>${phone}</span>
+            </a>
+            <div class="flex items-center gap-space-xs">
+              <a href="https://wa.me/${cleanPhone}" target="_blank" class="px-space-sm py-1 rounded-lg bg-surface-container text-secondary flex items-center gap-1 font-label-sm text-label-sm active:scale-95">
+                <span class="material-symbols-outlined text-[14px]">chat</span>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          `;
+        } else {
+          bottomBar.innerHTML = `
+            <span class="contact-phone font-label-sm text-label-sm text-on-surface-variant italic">Sin número registrado</span>
+            <span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded bg-surface-container text-on-surface-variant">Sólo Email</span>
+          `;
+        }
+      }
+
+      showToast('Contacto actualizado con éxito');
+    } else {
+      const randomGradient = gradientPresets[Math.floor(Math.random() * gradientPresets.length)];
+      const initials = getInitials(name);
+      const cleanPhone = phone.replace(/[^0-9]/g, '');
+
+      const newCard = document.createElement('div');
+      newCard.className = 'contact-card relative p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm transition-all';
+      newCard.setAttribute('data-name', name);
+      newCard.setAttribute('data-email', email);
+      newCard.setAttribute('data-phone', phone);
+
+      let emailHtml = email
+        ? `<a href="mailto:${email}" class="contact-email flex items-center gap-1 text-on-surface-variant hover:text-secondary font-body-sm text-body-sm truncate pt-0.5"><span class="material-symbols-outlined text-[14px]">mail</span><span class="truncate">${email}</span></a>`
+        : `<span class="contact-email font-body-sm text-body-sm text-on-surface-variant italic pt-0.5">Sin email configurado</span>`;
+
+      let phoneHtml = phone
+        ? `
+          <a href="tel:${phone}" class="contact-phone flex items-center gap-1.5 font-label-md text-label-md text-primary hover:underline">
+            <span class="material-symbols-outlined text-[16px] text-secondary">call</span>
+            <span>${phone}</span>
+          </a>
+          <div class="flex items-center gap-space-xs">
+            <a href="https://wa.me/${cleanPhone}" target="_blank" class="px-space-sm py-1 rounded-lg bg-surface-container text-secondary flex items-center gap-1 font-label-sm text-label-sm active:scale-95">
+              <span class="material-symbols-outlined text-[14px]">chat</span>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        `
+        : `
+          <span class="contact-phone font-label-sm text-label-sm text-on-surface-variant italic">Sin número registrado</span>
+          <span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded bg-surface-container text-on-surface-variant">Sólo Email</span>
+        `;
+
+      newCard.innerHTML = `
+        <div class="flex items-start justify-between gap-space-sm">
+          <div class="flex items-center gap-space-md min-w-0">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-headline-sm text-headline-sm text-on-primary font-bold shadow-md bg-gradient-to-br ${randomGradient} shrink-0">
+              ${initials}
+            </div>
+            <div class="flex flex-col min-w-0">
+              <div class="flex items-center gap-space-xs">
+                <span class="contact-name font-headline-sm text-headline-sm text-on-surface font-semibold truncate">${name}</span>
+                <span class="px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-medium shrink-0">Obligatorio</span>
+              </div>
+              ${emailHtml}
+            </div>
+          </div>
+
+          <div class="flex items-center gap-space-xs shrink-0">
+            <button onclick="openEditModal(this)" title="Editar contacto" class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all">
+              <span class="material-symbols-outlined text-[18px]">edit</span>
+            </button>
+            <button onclick="confirmDelete(this)" title="Eliminar contacto" class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/20 active:scale-95 transition-all">
+              <span class="material-symbols-outlined text-[18px]">delete</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pt-space-xs flex items-center justify-between text-on-surface-variant">
+          ${phoneHtml}
+        </div>
+      `;
+
+      const list = document.getElementById('contact-list');
+      list.prepend(newCard);
+      showToast('Contacto agregado correctamente');
+    }
+
+    toggleAddModal(false);
+    updateCounter();
+  }
+
+  function confirmDelete(button) {
+    contactToDeleteNode = button.closest('.contact-card');
+    const name = contactToDeleteNode.getAttribute('data-name') || 'este contacto';
+    document.getElementById('delete-contact-label').textContent = `¿Seguro que deseas eliminar a "${name}"?`;
+
+    const dialog = document.getElementById('delete-dialog');
+    const backdrop = document.getElementById('delete-dialog-backdrop');
+
+    backdrop.classList.remove('hidden');
+    dialog.classList.remove('hidden');
+  }
+
+  function closeDeleteDialog() {
+    const dialog = document.getElementById('delete-dialog');
+    const backdrop = document.getElementById('delete-dialog-backdrop');
+    dialog.classList.add('hidden');
+    backdrop.classList.add('hidden');
+    contactToDeleteNode = null;
+  }
+
+  function executeDelete() {
+    if (contactToDeleteNode) {
+      const name = contactToDeleteNode.getAttribute('data-name') || 'Contacto';
+      contactToDeleteNode.remove();
+      showToast(`${name} eliminado`, 'delete');
+      closeDeleteDialog();
+      updateCounter();
+    }
+  }
+
+  function filterContacts(query) {
+    const term = (query || '').toLowerCase().trim();
+    const cards = document.querySelectorAll('.contact-card');
+    const clearBtn = document.getElementById('clear-search-btn');
+
+    if (term.length > 0) {
+      clearBtn.classList.remove('hidden');
+    } else {
+      clearBtn.classList.add('hidden');
+    }
+
+    cards.forEach(card => {
+      const name = (card.getAttribute('data-name') || '').toLowerCase();
+      const email = (card.getAttribute('data-email') || '').toLowerCase();
+      const phone = (card.getAttribute('data-phone') || '').toLowerCase();
+
+      if (name.includes(term) || email.includes(term) || phone.includes(term)) {
+        card.classList.remove('hidden', 'hidden-search');
+      } else {
+        card.classList.add('hidden', 'hidden-search');
+      }
+    });
+
+    updateCounter();
+  }
+
+  function clearSearch() {
+    const input = document.getElementById('search-input');
+    input.value = '';
+    filterContacts('');
+    input.focus();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCounter();
+  });
+</script></main></body></html>
