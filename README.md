@@ -8,9 +8,11 @@ el de tus amigos.
 
 1. Creas un **Evento** (ej: "Cena Araguaney") y eliges qué **Personas** de tu
    libreta participaron (o agregas gente nueva al vuelo).
-2. Tomas una **foto de la boleta** (o la eliges de la galería). La app la
-   envía directamente desde tu teléfono a la API de **Gemini** (Google) para
-   leer los ítems, cantidades y precios automáticamente.
+2. Tomas una **foto de la boleta** (o la eliges de la galería) y la
+   **recortas** para dejar solo la boleta (sin mesa, manos ni fondo). La app
+   la envía directamente desde tu teléfono a la API de **Gemini** (Google)
+   para leer los ítems, cantidades y precios automáticamente, mostrando
+   mensajes de progreso mientras espera la respuesta.
 3. Revisas y corriges los ítems detectados en una tabla editable (siempre
    puedes agregar/borrar/editar filas, o saltarte el OCR e ingresar todo a
    mano si no tienes clave API).
@@ -23,8 +25,9 @@ el de tus amigos.
    consumo por persona, la propina y el total final — todo redondeado a
    pesos enteros, sin perder ni ganar plata en el redondeo.
 8. **Guardas** el evento (queda en tu Historial para reabrir/editar/borrar
-   después), lo **exportas a Excel** (.xlsx con formato) y lo **compartes**
-   por WhatsApp, email, etc.
+   después — incluyendo el **nombre y la fecha**, editables en cualquier
+   momento desde el resumen), lo **exportas a Excel** (.xlsx con formato) y
+   lo **compartes** por WhatsApp, email, etc.
 
 Todos los datos (personas, eventos, boletas procesadas) se guardan **sólo en
 tu teléfono**, en una base de datos SQLite local. No hay servidor propio, no
@@ -81,6 +84,16 @@ lib/
     app_header_bar.dart              Encabezado de marca (logo + título + subtítulo de sección)
     money_text.dart                  Formato de moneda CLP ($11.550) en tipografía monoespaciada
     person_chip_selector.dart        Chips seleccionables de personas (reutilizado en varias pantallas)
+
+android/app/src/main/
+  AndroidManifest.xml                 Permisos de cámara/galería, actividad UCropActivity
+                                       (recorte de imagen) y su tema, ícono de la app
+  kotlin/.../MainApplication.kt       Application personalizada: solo aplica el padding de
+                                       las barras del sistema a actividades nativas de
+                                       terceros (la pantalla de recorte), para que no queden
+                                       tapadas por la barra de estado/navegación en
+                                       Android 16 (ver "Notas técnicas" más abajo)
+  res/mipmap-*/ic_launcher.png        Ícono de la app (todas las densidades)
 ```
 
 ## Diseño visual
@@ -121,8 +134,11 @@ nuevo solo.
 Requisitos en tu máquina (no en este sandbox — ver más abajo):
 
 - Flutter SDK (canal stable) instalado y en el `PATH`.
-- Android SDK con `platform-tools`, `platforms;android-34` y
-  `build-tools;34.0.0` instalados (Android Studio los instala solo).
+- Android SDK con `platform-tools` y la plataforma/build-tools que pida el
+  `compileSdk` de turno (el proyecto usa `flutter.compileSdkVersion`, así
+  que sigue automáticamente la versión que recomiende tu Flutter SDK
+  instalado). Android Studio los descarga solo al abrir el proyecto o al
+  primer intento de build.
 - JDK 17 (el que trae Android Studio sirve).
 
 Pasos:
@@ -174,6 +190,41 @@ estas opciones (una sola vez, con internet):
 
 No hace falta cuenta, ni Play Store, ni conexión permanente a internet
 (salvo el momento puntual en que se lee una boleta con Gemini).
+
+## Notas técnicas (para quien retome el código)
+
+- **Modelo de Gemini**: la app usa `gemini-3.6-flash` (constante `_model` en
+  `lib/services/gemini_ocr_service.dart`). Si Google vuelve a dar de baja un
+  modelo, el propio error que devuelve la API dice cuál es el reemplazo
+  sugerido.
+- **Localización**: el proyecto depende de `flutter_localizations` (paquete
+  del SDK de Flutter, no de pub.dev) y declara sus delegates en
+  `lib/main.dart`. Es necesario para que `MaterialLocalizations` resuelva
+  correctamente el locale `es_CL`; sin esto la app crashea con
+  "No MaterialLocalizations found" al abrir cualquier pantalla con `AppBar`
+  o `NavigationBar`.
+- **Recorte de imagen (`image_cropper`)**: requiere declarar
+  `com.yalantis.ucrop.UCropActivity` a mano en `AndroidManifest.xml` (no
+  se agrega solo al hacer `flutter pub get`); sin eso la app crashea al
+  abrir la pantalla de recorte.
+- **Edge-to-edge en Android 16 (API 36)**: a partir de esa versión, Android
+  fuerza que todas las actividades dibujen su contenido "debajo" de la
+  barra de estado/navegación, y ya no hay forma de optar por fuera de esto
+  a nivel de tema (el atributo `windowOptOutEdgeToEdgeEnforcement` sólo
+  funciona hasta Android 15). Como `UCropActivity` es una librería de
+  terceros no actualizada para manejar esto, su barra superior e inferior
+  quedaban tapadas. Se resolvió con `MainApplication.kt`: aplica
+  manualmente el padding de las barras del sistema a cualquier actividad
+  que no sea de Flutter (las pantallas de Flutter ya manejan sus propios
+  insets con `SafeArea` en Dart, así que no se tocan).
+- **Permisos de cámara/galería**: `image_picker` con `ImageSource.camera`
+  necesita declarar `android.permission.CAMERA` a mano en el manifest
+  (desde `image_picker` 0.8+ ya no se agrega solo). El acceso a galería usa
+  `READ_MEDIA_IMAGES` (Android 13+) y `READ_EXTERNAL_STORAGE` con
+  `maxSdkVersion="32"` (Android 12 y anteriores).
+- **`SafeArea`**: todas las pantallas con botones fijos pegados al borde
+  inferior (o contenido que llega hasta ahí) están envueltas en `SafeArea`
+  para no quedar detrás de la barra de gestos/navegación del sistema.
 
 ## Limitaciones conocidas
 

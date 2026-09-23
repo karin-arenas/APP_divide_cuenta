@@ -209,6 +209,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   label: const Text('Borrar todo el historial y personas',
                       style: TextStyle(color: Colors.red)),
                 ),
+                const SizedBox(height: 24),
+                Center(
+                  child: Text(
+                    'App version 1.1 desarrollada por Karin Arenas 🇨🇱',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 11, color: AppTheme.onSurfaceVariant),
+                  ),
+                ),
               ],
             ),
     );

@@ -12,6 +12,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        // Requerido por image_cropper (uCrop) para poder usar APIs de Java 8+
+        // en dispositivos con una API de Android antigua.
+        isCoreLibraryDesugaringEnabled = true
     }
 
     defaultConfig {
@@ -46,4 +49,11 @@ kotlin {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+    // Para ViewCompat/WindowInsetsCompat en MainApplication.kt (fix de
+    // edge-to-edge para la pantalla de recorte de image_cropper).
+    implementation("androidx.core:core-ktx:1.13.1")
 }

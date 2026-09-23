@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../db/events_repository.dart';
@@ -8,6 +9,7 @@ import '../services/excel_export_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/money_text.dart';
 import 'event_item_assignment_screen.dart';
+import 'home_inicio_screen.dart';
 
 /// Pantalla final: muestra la tabla de resultados (Detalle / Total / una
 /// columna por persona), permite guardar el evento, exportarlo a Excel y
@@ -97,6 +99,108 @@ class _EventSummaryResultScreenState extends State<EventSummaryResultScreen> {
     }
   }
 
+  Future<void> _goHome() async {
+    if (_dirty) {
+      final confirm = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Hay cambios sin guardar'),
+          content: const Text(
+              'Si vuelves al inicio ahora vas a perder los cambios que no has guardado. ¿Continuar de todas formas?'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('Cancelar'),
+            ),
+            FilledButton.tonal(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: const Text('Volver sin guardar'),
+            ),
+          ],
+        ),
+      );
+      if (confirm != true) return;
+    }
+    if (!mounted) return;
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (_) => const HomeInicioScreen()),
+      (route) => false,
+    );
+  }
+
+  Future<void> _editNameAndDate() async {
+    if (_draft == null) return;
+    final nameController = TextEditingController(text: _draft!.name);
+    DateTime selectedDate = _draft!.date;
+
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (ctx) {
+        return StatefulBuilder(
+          builder: (ctx, setDialogState) {
+            return AlertDialog(
+              title: const Text('Editar evento'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextField(
+                    controller: nameController,
+                    autofocus: true,
+                    textCapitalization: TextCapitalization.sentences,
+                    decoration: const InputDecoration(
+                      labelText: 'Nombre del evento',
+                      hintText: 'Ej: Bar',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: const Text('Fecha'),
+                    subtitle:
+                        Text(DateFormat('dd/MM/yyyy', 'es_CL').format(selectedDate)),
+                    trailing: const Icon(Icons.calendar_today),
+                    onTap: () async {
+                      final picked = await showDatePicker(
+                        context: ctx,
+                        initialDate: selectedDate,
+                        firstDate: DateTime(2020),
+                        lastDate: DateTime(2100),
+                      );
+                      if (picked != null) {
+                        setDialogState(() => selectedDate = picked);
+                      }
+                    },
+                  ),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(ctx, false),
+                  child: const Text('Cancelar'),
+                ),
+                FilledButton(
+                  onPressed: () => Navigator.pop(ctx, true),
+                  child: const Text('Guardar'),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+
+    if (result == true) {
+      setState(() {
+        _draft!.name = nameController.text.trim();
+        _draft!.date = selectedDate;
+        _dirty = true;
+      });
+      await _save(silent: true);
+    }
+  }
+
   Future<void> _editEvent() async {
     if (_draft == null) return;
     await Navigator.push(
@@ -173,8 +277,13 @@ class _EventSummaryResultScreenState extends State<EventSummaryResultScreen> {
         title: Text(draft.name),
         actions: [
           IconButton(
+            icon: const Icon(Icons.edit_calendar_outlined),
+            tooltip: 'Editar nombre y fecha',
+            onPressed: _editNameAndDate,
+          ),
+          IconButton(
             icon: const Icon(Icons.edit),
-            tooltip: 'Editar',
+            tooltip: 'Editar ítems y personas',
             onPressed: _editEvent,
           ),
           IconButton(
@@ -186,6 +295,11 @@ class _EventSummaryResultScreenState extends State<EventSummaryResultScreen> {
                 : const Icon(Icons.save_outlined),
             tooltip: 'Guardar',
             onPressed: _saving ? null : () => _save(),
+          ),
+          IconButton(
+            icon: const Icon(Icons.home_outlined),
+            tooltip: 'Volver al inicio',
+            onPressed: _goHome,
           ),
         ],
       ),

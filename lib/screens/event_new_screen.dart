@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/event_draft.dart';
+import '../widgets/app_bottom_nav.dart';
 import 'event_people_select_screen.dart';
+import 'home_inicio_screen.dart';
 
 /// Primer paso para crear un evento nuevo: nombre y fecha.
 class EventNewScreen extends StatefulWidget {
@@ -42,7 +44,19 @@ class _EventNewScreenState extends State<EventNewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Nuevo evento')),
+      appBar: AppBar(
+        title: const Text('Nuevo evento'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.home_outlined),
+            tooltip: 'Volver al inicio',
+            onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (_) => const HomeInicioScreen()),
+              (route) => false,
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Padding(
         padding: const EdgeInsets.all(16),
@@ -55,7 +69,7 @@ class _EventNewScreenState extends State<EventNewScreen> {
               textCapitalization: TextCapitalization.sentences,
               decoration: const InputDecoration(
                 labelText: 'Nombre del evento',
-                hintText: 'Ej: Cena Araguaney',
+                hintText: 'Ej: Bar',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -82,6 +96,7 @@ class _EventNewScreenState extends State<EventNewScreen> {
         ),
       ),
       ),
+      bottomNavigationBar: const AppBottomNav(currentIndex: 1),
     );
   }
 }

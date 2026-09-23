@@ -139,7 +139,7 @@ Reglas:
     try {
       response = await http
           .post(uri, headers: {'Content-Type': 'application/json'}, body: body)
-          .timeout(const Duration(seconds: 75));
+          .timeout(const Duration(seconds: 90));
     } on SocketException {
       throw GeminiOcrException(
           'Sin conexión a internet. Revisa tu conexión e intenta de nuevo, o ingresa los ítems manualmente.');

@@ -15,4 +15,15 @@
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
+
+    <!-- Tema para la pantalla de recorte de image_cropper (UCropActivity).
+         windowOptOutEdgeToEdgeEnforcement evita que, en Android 15+, el
+         contenido se dibuje detras de la barra de estado y la barra de
+         navegacion del sistema (edge-to-edge forzado), que hacia que la
+         barra superior e inferior de la herramienta de recorte quedaran
+         tapadas. En versiones de Android anteriores este item se ignora
+         sin problema. -->
+    <style name="UCropTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
 </resources>

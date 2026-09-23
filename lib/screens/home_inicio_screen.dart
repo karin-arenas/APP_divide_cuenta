@@ -12,7 +12,7 @@ import 'home_historial.dart';
 import 'people_manager_screen.dart';
 import 'settings_screen.dart';
 
-/// Pantalla de Inicio: dashboard con acceso rápido a "Nuevo Ticket" y a
+/// Pantalla de Inicio: dashboard con acceso rápido a "Nueva Cuenta" y a
 /// los últimos eventos, inspirada en `design_reference/screens/inicio.html`.
 class HomeInicioScreen extends StatefulWidget {
   const HomeInicioScreen({super.key});
@@ -153,7 +153,7 @@ class _HomeInicioScreenState extends State<HomeInicioScreen> {
                           size: 40, color: AppTheme.onSurfaceVariant),
                       const SizedBox(height: 10),
                       Text(
-                        'Todavía no tienes eventos. Toca "Nuevo Ticket" para dividir tu primera cuenta.',
+                        'Todavía no tienes eventos. Toca "Nueva Cuenta" para dividir tu primera cuenta.',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: AppTheme.onSurfaceVariant),
                       ),
@@ -208,7 +208,7 @@ class _NewTicketCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Nuevo Ticket',
+                    Text('Nueva Cuenta',
                         style: Theme.of(context).textTheme.titleMedium),
                     const SizedBox(height: 2),
                     Text(

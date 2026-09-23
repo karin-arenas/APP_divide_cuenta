@@ -20,6 +20,7 @@ dependencies:
 
   # Fotos / imágenes
   image_picker: ^1.1.2
+  image_cropper: ^8.1.0
 
   # Red / OCR Gemini
   http: ^1.2.1
